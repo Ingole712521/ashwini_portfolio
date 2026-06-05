@@ -118,7 +118,6 @@
       nekoEl.style.height = "32px";
       nekoEl.style.position = "fixed";
       nekoEl.style.pointerEvents = "none";
-      nekoEl.style.imageRendering = "pixelated";
       nekoEl.style.left = `${nekoPosX - 16}px`;
       nekoEl.style.top = `${nekoPosY - 16}px`;
       nekoEl.style.zIndex = "9990";
@@ -133,7 +132,7 @@
       });
       
       if (persistPosition) {
-        window.addEventListener("beforeunload", function (event) {
+        window.addEventListener("beforeunload", function () {
           window.localStorage.setItem("oneko", JSON.stringify({
             nekoPosX: nekoPosX,
             nekoPosY: nekoPosY,
@@ -154,7 +153,6 @@
     let lastFrameTimestamp;
   
     function onAnimationFrame(timestamp) {
-      // Stops execution if the neko element is removed from DOM
       if (!nekoEl.isConnected) {
         return;
       }
@@ -180,8 +178,7 @@
   
     function idle() {
       idleTime += 1;
-  
-      // every ~ 20 seconds
+
       if (
         idleTime > 10 &&
         Math.floor(Math.random() * 200) == 0 &&
@@ -250,14 +247,12 @@
   
       if (idleTime > 1) {
         setSprite("alert", 0);
-        // count down after being alerted before moving
         idleTime = Math.min(idleTime, 7);
         idleTime -= 1;
         return;
       }
   
-      let direction;
-      direction = diffY / distance > 0.5 ? "N" : "";
+      let direction = diffY / distance > 0.5 ? "N" : "";
       direction += diffY / distance < -0.5 ? "S" : "";
       direction += diffX / distance > 0.5 ? "W" : "";
       direction += diffX / distance < -0.5 ? "E" : "";

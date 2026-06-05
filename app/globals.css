@@ -166,7 +166,6 @@ body {
   display: none;
 }
 
-/* Oneko — pixel cat follows cursor (desktop only) */
 #oneko {
   z-index: 9990 !important;
   image-rendering: pixelated;

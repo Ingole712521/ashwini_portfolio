@@ -16,11 +16,5 @@ export function OnekoProvider() {
 
   if (!enabled) return null;
 
-  return (
-    <Script
-      src="/oneko.js"
-      strategy="lazyOnload"
-      data-cat="/oneko.gif"
-    />
-  );
+  return <Script src="/oneko.js" strategy="lazyOnload" />;
 }
