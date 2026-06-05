@@ -11,7 +11,7 @@ import { Text } from "@/components/retroui/Text";
 const PEEK_RATIO = 0.2;
 
 function getNavOffset() {
-  return window.matchMedia("(min-width: 640px)").matches ? 120 : 112;
+  return window.matchMedia("(min-width: 640px)").matches ? 104 : 96;
 }
 
 export function ExperienceStack() {

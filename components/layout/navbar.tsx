@@ -14,7 +14,7 @@ const panelClassName =
 const sectionIds = navLinks.map((l) => l.href.replace("#", ""));
 
 /** Navbar height + breathing room for active section detection */
-const NAV_OFFSET = 140;
+const NAV_OFFSET = 104;
 
 function getActiveSection(): string {
   let current = sectionIds[0];
@@ -74,14 +74,14 @@ export function Navbar() {
   const closeMenu = () => setOpen(false);
 
   return (
-    <header className="pointer-events-none fixed top-0 right-0 left-0 z-50 px-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-6 sm:pt-[max(1rem,env(safe-area-inset-top))]">
+    <header className="pointer-events-none fixed top-0 right-0 left-0 z-50 px-4 pt-[max(0.625rem,env(safe-area-inset-top))] sm:px-6 sm:pt-[max(0.75rem,env(safe-area-inset-top))] lg:px-8">
       <nav
         className={cn(
-          "pointer-events-auto relative mx-auto flex max-w-6xl items-center justify-end px-3 py-3 sm:px-6 sm:py-3.5 md:justify-center",
+          "pointer-events-auto relative mx-auto flex max-w-4xl items-center justify-end px-4 py-2.5 sm:px-5 sm:py-3 md:justify-center",
           panelClassName,
         )}
       >
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-0.5 md:flex">
           {navLinks.map((link) => {
             const id = link.href.replace("#", "");
             return (
@@ -91,7 +91,7 @@ export function Navbar() {
                 data-cursor-hover
                 data-cursor-type="link"
                 data-active={active === id ? "true" : "false"}
-                className="nav-link min-h-11 px-3 py-2 text-sm text-muted-foreground hover:text-purple"
+                className="nav-link min-h-10 px-3 py-2 text-sm text-muted-foreground hover:text-purple"
               >
                 {link.label}
               </a>
@@ -99,7 +99,7 @@ export function Navbar() {
           })}
         </div>
 
-        <div className="absolute right-3 hidden items-center sm:right-6 md:flex">
+        <div className="absolute right-3 hidden items-center sm:right-4 md:flex">
           <ThemeToggle />
         </div>
 
@@ -109,7 +109,7 @@ export function Navbar() {
             type="button"
             variant="outline"
             size="icon"
-            className="min-h-11 min-w-11"
+            className="min-h-10 min-w-10"
             onClick={() => setOpen((prev) => !prev)}
             aria-label="Toggle menu"
             aria-expanded={open}
@@ -129,7 +129,7 @@ export function Navbar() {
           />
           <div
             className={cn(
-              "pointer-events-auto relative z-50 mx-auto mt-2 max-w-6xl px-3 py-3 md:hidden",
+              "pointer-events-auto relative z-50 mx-auto mt-2 max-w-4xl px-4 py-3 md:hidden",
               panelClassName,
             )}
           >
@@ -143,7 +143,7 @@ export function Navbar() {
                     data-cursor-hover
                     data-cursor-type="link"
                     data-active={active === id ? "true" : "false"}
-                    className="nav-link min-h-11 px-3 py-3 text-base text-muted-foreground"
+                    className="nav-link min-h-11 px-3 py-2.5 text-sm text-muted-foreground"
                     onClick={closeMenu}
                   >
                     {link.label}

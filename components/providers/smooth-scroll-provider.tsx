@@ -12,7 +12,7 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
       root
       options={{
         autoRaf: true,
-        anchors: { offset: -120 },
+        anchors: { offset: -104 },
         duration: 1.2,
         smoothWheel: true,
       }}
