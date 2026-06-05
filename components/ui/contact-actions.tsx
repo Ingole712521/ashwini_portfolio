@@ -25,8 +25,8 @@ type ContactActionsProps = {
 
 export function ContactActions({ methods }: ContactActionsProps) {
   return (
-    <div className="space-y-8">
-      <div className="grid gap-5 sm:grid-cols-3">
+    <div className="space-y-6 sm:space-y-8">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
         {methods.map((method) => {
           const Icon = iconMap[method.label as keyof typeof iconMap];
 
@@ -36,21 +36,21 @@ export function ContactActions({ methods }: ContactActionsProps) {
               data-cursor-hover
               data-cursor-type="contact"
               data-cursor-magnetic
-              className="group flex flex-col items-center border-2 border-black bg-background p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-yellow hover:shadow-lg"
+              className="group flex flex-col items-center border-2 border-black bg-background p-5 text-center shadow-sm transition-all duration-300 active:scale-[0.98] sm:p-6 sm:hover:-translate-y-1.5 sm:hover:border-yellow sm:hover:shadow-lg"
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center border-2 border-black bg-yellow text-foreground shadow-xs transition-transform duration-300 group-hover:scale-110">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center border-2 border-black bg-yellow text-foreground shadow-xs transition-transform duration-300 sm:group-hover:scale-110">
                 {Icon ? <Icon className="h-5 w-5" aria-hidden /> : null}
               </div>
               <p className="font-head text-sm font-semibold text-card-foreground">
                 {method.label}
               </p>
-              <p className="mt-1.5 text-xs leading-5 text-muted-foreground">
+              <p className="mt-1.5 max-w-full break-all text-sm leading-5 text-muted-foreground">
                 {method.description}
               </p>
               <Button
-                size="sm"
+                size="md"
                 variant="outline"
-                className="mt-5 w-full"
+                className="mt-5 w-full min-h-11"
                 render={
                   <a
                     href={method.href}
@@ -67,9 +67,9 @@ export function ContactActions({ methods }: ContactActionsProps) {
         })}
       </div>
 
-      <div className="flex flex-col items-center gap-4 border-t-2 border-black pt-8">
+      <div className="flex flex-col items-center gap-4 border-t-2 border-black pt-6 sm:pt-8">
         <p className="text-sm text-muted-foreground">Want the full profile?</p>
-        <ResumeModalTrigger size="md" variant="secondary">
+        <ResumeModalTrigger size="md" variant="secondary" className="w-full min-h-11 sm:w-auto">
           View Resume
         </ResumeModalTrigger>
       </div>

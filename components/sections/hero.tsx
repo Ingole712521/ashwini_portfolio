@@ -4,6 +4,7 @@ import { heroContent, heroTechStack } from "@/data/hero";
 import { Badge } from "@/components/retroui/Badge";
 import { Button } from "@/components/retroui/Button";
 import { Card } from "@/components/retroui/Card";
+import { HeroName } from "@/components/ui/hero-name";
 import { ResumeModalTrigger } from "@/components/ui/resume-modal";
 import { TechCard } from "@/components/ui/tech-card";
 
@@ -12,9 +13,8 @@ export function Hero() {
     <section
       id="home"
       data-cursor-zone="hero"
-      className="relative z-10 flex min-h-screen items-center justify-center px-6 pt-28 pb-20"
+      className="relative z-10 flex min-h-screen items-center justify-center px-4 pt-24 pb-16 sm:px-6 sm:pt-28 sm:pb-20"
     >
-      {/* Decorative watermarks */}
       <div
         className="hero-watermark pointer-events-none absolute top-[12%] right-[-5%] hidden text-[12rem] lg:block"
         aria-hidden
@@ -34,7 +34,6 @@ export function Hero() {
         FULL STACK
       </div>
 
-      {/* Floating shapes */}
       <div
         className="animate-float-shape pointer-events-none absolute top-[18%] right-[12%] hidden h-20 w-20 border-2 border-black bg-primary shadow-lg lg:block"
         style={{ "--rotate": "4deg" } as CSSProperties}
@@ -53,12 +52,15 @@ export function Hero() {
         aria-hidden
       />
 
-      <Card className="relative w-full max-w-5xl p-8 sm:p-12 lg:p-14">
-        <div className="flex flex-col gap-10">
-          <div className="flex w-full flex-col items-center gap-8 text-center sm:items-start sm:text-left">
-            <div className="animate-hero-reveal stagger-1 flex w-full flex-wrap items-center justify-center gap-3 sm:justify-start">
-              <Badge variant="orange">{heroContent.badge}</Badge>
-              <Badge variant="outline" className="gap-2">
+      <Card className="relative w-full max-w-5xl p-5 sm:p-8 lg:p-14">
+        <div className="flex flex-col gap-8 sm:gap-10">
+          <div className="flex w-full flex-col items-center gap-6 text-center sm:items-start sm:gap-8 sm:text-left">
+            <div className="animate-hero-reveal stagger-1 flex w-full flex-wrap items-center justify-center gap-2 sm:justify-start sm:gap-3">
+              <Badge variant="orange" className="text-xs sm:text-sm">
+                <span className="sm:hidden">8+ Years Experience</span>
+                <span className="hidden sm:inline">{heroContent.badge}</span>
+              </Badge>
+              <Badge variant="outline" className="gap-2 text-xs sm:text-sm">
                 <span
                   className="animate-pulse-dot inline-block h-2 w-2 rounded-full bg-orange"
                   aria-hidden
@@ -67,34 +69,27 @@ export function Hero() {
               </Badge>
             </div>
 
-            <div className="w-full space-y-5">
-              <p className="animate-hero-reveal stagger-2 font-mono text-sm tracking-[0.2em] text-muted-foreground uppercase">
+            <div className="w-full space-y-4 sm:space-y-5">
+              <p className="animate-hero-reveal stagger-2 font-mono text-xs tracking-[0.15em] text-muted-foreground uppercase sm:text-sm sm:tracking-[0.2em]">
                 {heroContent.greeting}
               </p>
-              <h1
-                className="animate-hero-reveal stagger-3 text-gradient-hero text-balance font-head font-bold tracking-[-0.05em]"
-                style={{
-                  fontSize: "clamp(2.5rem, 10vw, 7rem)",
-                  lineHeight: 0.95,
-                }}
-              >
-                {siteConfig.name}
-              </h1>
-              <p className="animate-hero-reveal stagger-4 role-title text-xl text-foreground sm:text-2xl">
+              <HeroName name={siteConfig.name} />
+              <p className="animate-hero-reveal stagger-4 role-title text-lg text-foreground sm:text-2xl">
                 {siteConfig.role}
               </p>
-              <p className="animate-hero-reveal stagger-5 prose-body mx-auto max-w-3xl text-base sm:mx-0 sm:text-lg">
+              <p className="animate-hero-reveal stagger-5 prose-body mx-auto w-full max-w-3xl text-left text-sm sm:mx-0 sm:text-lg">
                 {heroContent.tagline}
               </p>
-              <p className="animate-hero-reveal stagger-5 mx-auto max-w-3xl border-l-4 border-primary py-1 pl-4 text-base leading-relaxed text-foreground sm:mx-0 sm:text-lg">
+              <p className="animate-hero-reveal stagger-5 w-full max-w-3xl border-l-4 border-primary py-1 pl-4 text-left text-sm leading-relaxed text-foreground sm:text-lg">
                 {heroContent.availabilityNote}
               </p>
             </div>
 
-            <div className="animate-hero-reveal stagger-6 flex w-full flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:items-start sm:justify-start">
-              <div data-cursor-magnetic data-cursor-type="cta">
+            <div className="animate-hero-reveal stagger-6 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+              <div className="w-full sm:w-auto" data-cursor-magnetic data-cursor-type="cta">
                 <Button
                   size="lg"
+                  className="w-full sm:w-auto"
                   render={<a href={heroContent.primaryCta.href} />}
                 >
                   {heroContent.primaryCta.label}
@@ -102,21 +97,26 @@ export function Hero() {
               </div>
               <Button
                 size="lg"
+                className="w-full sm:w-auto"
                 variant="outline"
                 render={<a href={heroContent.secondaryCta.href} />}
               >
                 {heroContent.secondaryCta.label}
               </Button>
-              <ResumeModalTrigger size="lg" variant="secondary">
+              <ResumeModalTrigger
+                size="lg"
+                variant="secondary"
+                className="w-full sm:w-auto"
+              >
                 {heroContent.resumeCta.label}
               </ResumeModalTrigger>
             </div>
 
-            <div className="animate-hero-reveal stagger-7 flex flex-col items-center gap-1 font-mono text-xs text-muted-foreground sm:flex-row sm:items-center sm:gap-4 sm:text-sm">
+            <div className="animate-hero-reveal stagger-7 flex w-full max-w-full flex-col items-start gap-1 font-mono text-xs text-muted-foreground sm:flex-row sm:items-center sm:gap-4 sm:text-sm">
               <a
                 href={`mailto:${siteConfig.email}`}
                 data-cursor-hover
-                className="link-hover"
+                className="link-hover max-w-full break-all"
               >
                 {siteConfig.email}
               </a>
@@ -134,18 +134,18 @@ export function Hero() {
           </div>
 
           <div
-            className="animate-hero-reveal stagger-7 border-t-2 border-black pt-10"
+            className="animate-hero-reveal stagger-7 border-t-2 border-black pt-8 sm:pt-10"
             data-cursor-zone="tech"
           >
-            <div className="mb-6 flex items-center justify-between gap-4">
-              <h3 className="font-head text-lg font-semibold text-foreground">
+            <div className="mb-5 flex flex-wrap items-center justify-between gap-2 sm:mb-6 sm:gap-4">
+              <h3 className="font-head text-base font-semibold text-foreground sm:text-lg">
                 Tech Stack
               </h3>
               <Badge variant="cyan" size="sm">
                 {heroTechStack.length} technologies
               </Badge>
             </div>
-            <ul className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8">
+            <ul className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
               {heroTechStack.map((tech) => (
                 <li key={tech.name}>
                   <TechCard name={tech.name} icon={tech.icon} />

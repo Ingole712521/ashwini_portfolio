@@ -21,7 +21,7 @@ export function SectionWrapper({
       id={id}
       data-cursor-zone={cursorZone ?? id}
       className={cn(
-        "relative z-10 px-6 py-28 sm:py-32",
+        "section-anchor relative z-10 px-4 py-16 sm:px-6 sm:py-24 lg:py-32",
         variant === "muted" && "bg-muted/50",
         className,
       )}

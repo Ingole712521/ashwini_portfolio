@@ -14,7 +14,7 @@ export function Projects() {
         badgeVariant="purple"
       />
 
-      <div className="grid gap-8 md:grid-cols-2">
+      <div className="grid gap-5 sm:gap-8 md:grid-cols-2">
         {projects.map((project, i) => (
           <ScrollReveal key={project.title} delay={i * 100}>
             <ProjectCard project={project} index={i} />

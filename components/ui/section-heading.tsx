@@ -15,17 +15,17 @@ export function SectionHeading({
   badgeVariant = "surface",
 }: SectionHeadingProps) {
   return (
-    <div className="mb-16 text-center">
+    <div className="mb-10 text-center sm:mb-16">
       <Badge variant={badgeVariant}>{label}</Badge>
       <h2
         className={cn(
-          "section-chapter-title mt-6 text-3xl text-foreground sm:text-4xl lg:text-5xl",
+          "section-chapter-title text-balance mt-5 px-2 text-2xl text-foreground sm:mt-6 sm:px-0 sm:text-4xl lg:text-5xl",
         )}
       >
         {title}
       </h2>
       {description && (
-        <p className="prose-body mx-auto mt-6 max-w-2xl text-base sm:text-lg">
+        <p className="prose-body mx-auto mt-4 max-w-2xl px-2 text-sm sm:mt-6 sm:px-0 sm:text-lg">
           {description}
         </p>
       )}

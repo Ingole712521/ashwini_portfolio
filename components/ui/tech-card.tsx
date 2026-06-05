@@ -21,7 +21,7 @@ export function TechCard({ name, icon, className }: TechCardProps) {
       data-cursor-type="tech"
       data-cursor-magnetic
       className={cn(
-        "group flex h-full flex-col items-center justify-center gap-2 border-2 border-black bg-card p-3 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg sm:gap-2.5 sm:p-3.5",
+        "tech-card group flex h-full min-h-[88px] flex-col items-center justify-center gap-1.5 border-2 border-black bg-card p-2.5 shadow-sm transition-all duration-300 active:scale-[0.97] sm:min-h-0 sm:gap-2 sm:p-3 sm:hover:-translate-y-1.5 sm:hover:shadow-lg md:p-3.5",
         `tech-glow-${accent}`,
         className,
       )}
@@ -41,9 +41,9 @@ export function TechCard({ name, icon, className }: TechCardProps) {
     >
       <TechIcon
         icon={icon}
-        className="text-foreground transition-all duration-300 group-hover:scale-110 group-hover:text-[var(--tech-color)]"
+        className="h-6 w-6 text-foreground transition-all duration-300 sm:h-8 sm:w-8 sm:group-hover:scale-110 sm:group-hover:text-[var(--tech-color)]"
       />
-      <span className="text-center text-[10px] font-head leading-tight text-muted-foreground transition-colors duration-300 group-hover:text-foreground sm:text-xs">
+      <span className="text-center text-[11px] font-head leading-tight text-muted-foreground transition-colors duration-300 sm:text-xs sm:group-hover:text-foreground">
         {name}
       </span>
     </div>

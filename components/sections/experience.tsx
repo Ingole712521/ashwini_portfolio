@@ -16,11 +16,11 @@ export function Experience() {
         badgeVariant="orange"
       />
 
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-5 sm:gap-8">
         {experience.map((job, i) => (
           <ScrollReveal key={`${job.company}-${job.period}`} delay={i * 80}>
             <Card
-              className="w-full p-7 sm:p-9"
+              className="w-full p-5 sm:p-7 lg:p-9"
               data-cursor-hover
               data-cursor-type="card"
               data-cursor-magnetic

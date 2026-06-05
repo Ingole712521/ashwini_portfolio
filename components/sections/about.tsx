@@ -20,10 +20,10 @@ export function About() {
         badgeVariant="purple"
       />
 
-      <div className="grid gap-10 lg:grid-cols-2">
+      <div className="grid gap-5 md:grid-cols-2 md:gap-8 lg:gap-10">
         <ScrollReveal>
           <Card
-            className="w-full p-8 sm:p-10"
+            className="w-full p-5 sm:p-8 lg:p-10"
             data-cursor-hover
             data-cursor-type="card"
           >
@@ -38,10 +38,10 @@ export function About() {
           </Card>
         </ScrollReveal>
 
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-5 sm:gap-8 lg:gap-10">
           <ScrollReveal delay={100}>
             <Card
-              className="w-full p-8 sm:p-10"
+              className="w-full p-5 sm:p-8 lg:p-10"
               data-cursor-hover
               data-cursor-type="card"
             >
@@ -64,7 +64,7 @@ export function About() {
 
           <ScrollReveal delay={200}>
             <Card
-              className="w-full p-8 sm:p-10"
+              className="w-full p-5 sm:p-8 lg:p-10"
               data-cursor-hover
               data-cursor-type="card"
             >

@@ -18,9 +18,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${fontVariables} h-full font-sans antialiased`}
+      className={`${fontVariables} h-full overflow-x-clip font-sans antialiased`}
     >
-      <body className="relative min-h-full flex flex-col bg-background text-foreground">
+      <body className="relative flex min-h-full flex-col overflow-x-clip bg-background pb-[env(safe-area-inset-bottom)] text-foreground">
         <ThemeProvider>
           <CustomCursorProvider>
             <SceneBackground />

@@ -17,11 +17,11 @@ export function Contact() {
 
       <div className="flex justify-center">
         <Card
-          className="w-full max-w-3xl p-8 sm:p-12"
+          className="w-full max-w-3xl p-5 sm:p-8 lg:p-12"
           data-cursor-hover
           data-cursor-type="contact"
         >
-          <div className="mb-10 text-center">
+          <div className="mb-6 text-center sm:mb-10">
             <Text as="h3" className="text-card-foreground">
               Get in touch
             </Text>

@@ -28,7 +28,7 @@ function ResumeProfileContent() {
           <p>📍 {resumeProfile.location}</p>
           <a
             href={`mailto:${siteConfig.email}`}
-            className="w-fit transition-colors hover:text-primary"
+            className="max-w-full break-all transition-colors hover:text-primary"
           >
             📧 {siteConfig.email}
           </a>
@@ -109,7 +109,7 @@ function ResumeProfileContent() {
         <Text as="h3" className="mb-4 text-card-foreground">
           Featured Projects
         </Text>
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid gap-3 md:grid-cols-2">
           {resumeProfile.featuredProjects.map((project) => (
             <div
               key={project.title}
@@ -205,7 +205,7 @@ export function ResumeModal({ open, onClose }: ResumeModalProps) {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
+      className="fixed inset-0 z-[100] flex items-end justify-center p-3 sm:items-center sm:p-6"
       data-lenis-prevent
     >
       <button
@@ -219,7 +219,7 @@ export function ResumeModal({ open, onClose }: ResumeModalProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="relative flex max-h-[90vh] w-full max-w-3xl flex-col border-2 border-black bg-card shadow-2xl"
+        className="relative flex max-h-[92vh] w-full max-w-3xl flex-col border-2 border-black bg-card shadow-2xl sm:max-h-[90vh]"
         onWheel={(event) => event.stopPropagation()}
       >
         <div className="flex shrink-0 items-center justify-between border-b-2 border-black bg-primary px-4 py-3 sm:px-6">
@@ -235,7 +235,7 @@ export function ResumeModal({ open, onClose }: ResumeModalProps) {
             size="icon"
             onClick={onClose}
             aria-label="Close"
-            className="bg-card"
+            className="min-h-11 min-w-11 bg-card"
           >
             <X className="h-4 w-4" />
           </Button>
