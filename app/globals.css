@@ -166,6 +166,19 @@ body {
   display: none;
 }
 
+/* Oneko — pixel cat follows cursor (desktop only) */
+#oneko {
+  z-index: 9990 !important;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+@media (pointer: coarse) {
+  #oneko {
+    display: none !important;
+  }
+}
+
 /* Custom cursor — desktop only */
 @media (pointer: fine) {
   body[data-custom-cursor] {

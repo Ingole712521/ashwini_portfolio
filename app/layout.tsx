@@ -1,5 +1,6 @@
 import { Navbar, Footer } from "@/components/layout";
 import { CustomCursorProvider } from "@/components/providers/custom-cursor-provider";
+import { OnekoProvider } from "@/components/providers/oneko-provider";
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SceneBackground } from "@/components/ui/scene-background";
@@ -28,6 +29,7 @@ export default function RootLayout({
               <Navbar />
               <main className="relative z-10">{children}</main>
               <Footer />
+              <OnekoProvider />
             </SmoothScrollProvider>
           </CustomCursorProvider>
         </ThemeProvider>
