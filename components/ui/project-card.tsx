@@ -1,75 +1,72 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import type { Project } from "@/types/portfolio";
+import { getMetroAccent } from "@/lib/project-colors";
 import { Badge } from "@/components/retroui/Badge";
-import { Text } from "@/components/retroui/Text";
 import { cn } from "@/lib/utils";
-import { useRef } from "react";
 
 type ProjectCardProps = {
   project: Project;
+  index: number;
   className?: string;
 };
 
-export function ProjectCard({ project, className }: ProjectCardProps) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const el = ref.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    el.style.transform = `perspective(900px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-6px)`;
-  };
-
-  const handleLeave = () => {
-    const el = ref.current;
-    if (!el) return;
-    el.style.transform = "";
-  };
+export function ProjectCard({ project, index, className }: ProjectCardProps) {
+  const accent = getMetroAccent(index);
+  const initial = project.title.charAt(0).toUpperCase();
+  const projectNum = String(index + 1).padStart(2, "0");
 
   return (
-    <div
-      ref={ref}
+    <article
       data-cursor-hover
       data-cursor-type="project"
       data-cursor-magnetic
       className={cn(
-        "project-card-border group flex w-full flex-col border-2 border-black bg-card p-6 shadow-md transition-[transform,box-shadow] duration-300 ease-out hover:shadow-xl sm:p-8",
+        "metro-project-card group flex w-full flex-col overflow-hidden border-2 border-black bg-card shadow-md",
         className,
       )}
-      onMouseMove={handleMove}
-      onMouseLeave={handleLeave}
-      style={{
-        transition: "transform 0.15s ease-out, box-shadow 0.3s ease",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.boxShadow =
-          "6px 6px 0 0 var(--border), 0 16px 40px rgba(139, 92, 246, 0.15)";
-      }}
+      style={
+        {
+          "--metro-bg": accent.bg,
+          "--metro-fg": accent.fg,
+        } as CSSProperties
+      }
     >
-      <div className="mb-5 flex h-36 items-center justify-center border-2 border-black bg-secondary transition-colors duration-300 group-hover:bg-purple/10">
-        <span className="font-head text-4xl text-purple transition-transform duration-300 group-hover:scale-110 sm:text-5xl">
-          {project.title.charAt(0)}
+      {/* Metro tile header */}
+      <div className="metro-project-card__tile relative flex h-40 flex-col justify-between border-b-2 border-black p-5 sm:h-44 sm:p-6">
+        <span
+          className="metro-project-card__ghost font-head leading-none select-none"
+          aria-hidden
+        >
+          {initial}
         </span>
+        <div className="relative z-10 flex items-end justify-between gap-3">
+          <span className="font-head text-5xl font-bold tracking-tighter sm:text-6xl">
+            {initial}
+          </span>
+          <span className="font-mono text-[10px] tracking-[0.2em] uppercase opacity-80 sm:text-xs">
+            Proj · {projectNum}
+          </span>
+        </div>
       </div>
-      <Text
-        as="h3"
-        className="text-xl font-bold tracking-tight text-card-foreground transition-colors duration-300 group-hover:text-primary sm:text-2xl"
-      >
-        {project.title}
-      </Text>
-      <p className="prose-body mt-4 flex-1 text-sm sm:text-base">
-        {project.description}
-      </p>
-      <div className="mt-6 flex flex-wrap gap-2">
-        {project.tags.map((tag) => (
-          <Badge key={tag} variant="purple" size="sm">
-            {tag}
-          </Badge>
-        ))}
+
+      {/* Content body */}
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <h3 className="font-head text-xl font-bold tracking-tight text-card-foreground sm:text-2xl">
+          {project.title}
+        </h3>
+        <p className="prose-body mt-3 flex-1 text-sm sm:text-base">
+          {project.description}
+        </p>
+        <div className="mt-5 flex flex-wrap gap-2 border-t-2 border-black/10 pt-5">
+          {project.tags.map((tag) => (
+            <Badge key={tag} variant="outline" size="sm">
+              {tag}
+            </Badge>
+          ))}
+        </div>
       </div>
-    </div>
+    </article>
   );
 }

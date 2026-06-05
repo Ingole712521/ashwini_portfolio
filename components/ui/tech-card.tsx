@@ -31,7 +31,7 @@ export function TechCard({ name, icon, className }: TechCardProps) {
         } as CSSProperties
       }
       onMouseEnter={(e) => {
-        e.currentTarget.style.boxShadow = `4px 4px 0 0 var(--border), 0 8px 24px color-mix(in srgb, ${color} 25%, transparent)`;
+        e.currentTarget.style.boxShadow = `4px 4px 0 0 var(--shadow-color), 0 8px 24px color-mix(in srgb, ${color} 25%, transparent)`;
         e.currentTarget.style.borderColor = color;
       }}
       onMouseLeave={(e) => {

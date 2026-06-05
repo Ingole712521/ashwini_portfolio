@@ -70,6 +70,7 @@
   --accent: #8b5cf6;
   --accent-foreground: #ffffff;
   --border: #111111;
+  --shadow-color: #111111;
   --input: #ffffff;
   --ring: #ec4899;
   --popover: #ffffff;
@@ -78,13 +79,13 @@
   --destructive-foreground: #ffffff;
 
   /* Dual-layer shadow system */
-  --shadow-brutal-xs: 1px 1px 0 0 var(--border);
-  --shadow-brutal-sm: 2px 2px 0 0 var(--border);
-  --shadow-brutal: 3px 3px 0 0 var(--border);
-  --shadow-brutal-md: 4px 4px 0 0 var(--border);
-  --shadow-brutal-lg: 6px 6px 0 0 var(--border);
-  --shadow-brutal-xl: 8px 8px 0 0 var(--border);
-  --shadow-brutal-2xl: 12px 12px 0 0 var(--border);
+  --shadow-brutal-xs: 1px 1px 0 0 var(--shadow-color);
+  --shadow-brutal-sm: 2px 2px 0 0 var(--shadow-color);
+  --shadow-brutal: 3px 3px 0 0 var(--shadow-color);
+  --shadow-brutal-md: 4px 4px 0 0 var(--shadow-color);
+  --shadow-brutal-lg: 6px 6px 0 0 var(--shadow-color);
+  --shadow-brutal-xl: 8px 8px 0 0 var(--shadow-color);
+  --shadow-brutal-2xl: 12px 12px 0 0 var(--shadow-color);
 
   --shadow-soft-xs: 0 2px 8px rgba(17, 17, 17, 0.04);
   --shadow-soft-sm: 0 4px 12px rgba(17, 17, 17, 0.06);
@@ -109,6 +110,7 @@
   --secondary-hover: #352850;
   --secondary-foreground: #ddd6fe;
   --border: #8b5cf6;
+  --shadow-color: #ffffff;
   --input: #1a171c;
   --ring: #ec4899;
   --popover: #1a171c;
@@ -620,28 +622,33 @@ body {
   color: var(--primary);
 }
 
-/* Project card animated border */
-.project-card-border {
-  position: relative;
+/* Retro metro project card */
+.metro-project-card {
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease;
 }
 
-.project-card-border::before {
-  content: "";
+.metro-project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0 0 var(--shadow-color), 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.metro-project-card__tile {
+  background: var(--metro-bg);
+  color: var(--metro-fg);
+}
+
+.metro-project-card__ghost {
   position: absolute;
-  inset: -2px;
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--purple),
-    var(--cyan)
-  );
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: -1;
-}
-
-.project-card-border:hover::before {
-  opacity: 1;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: clamp(6rem, 18vw, 9rem);
+  font-weight: 700;
+  color: var(--metro-fg);
+  opacity: 0.12;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
