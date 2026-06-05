@@ -242,7 +242,7 @@ export function ResumeModal({ open, onClose }: ResumeModalProps) {
         </div>
 
         <div
-          className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-5 sm:p-8"
+          className="hide-scrollbar min-h-0 flex-1 overflow-y-auto overscroll-contain p-5 sm:p-8"
           data-lenis-prevent
         >
           <ResumeProfileContent />
