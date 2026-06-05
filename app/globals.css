@@ -95,8 +95,6 @@
   --shadow-soft-xl: 0 16px 36px rgba(17, 17, 17, 0.1);
   --shadow-soft-2xl: 0 24px 48px rgba(17, 17, 17, 0.12);
 
-  /* Cursor glow colors */
-  --cursor-glow: var(--primary);
 }
 
 .dark {
@@ -183,78 +181,6 @@ html {
 @media (pointer: coarse) {
   #oneko {
     display: none !important;
-  }
-}
-
-/* Custom cursor — desktop only */
-@media (pointer: fine) {
-  body[data-custom-cursor] {
-    cursor: none;
-  }
-
-  body[data-custom-cursor] a,
-  body[data-custom-cursor] button,
-  body[data-custom-cursor] [data-cursor-hover] {
-    cursor: none;
-  }
-}
-
-/* ── Retro pixel arrow cursor ── */
-
-.retro-cursor {
-  --cursor-accent: #ec4899;
-  --cursor-scale: 1;
-  /* Light mode: white arrow, black outline */
-  --cursor-fill: #ffffff;
-  --cursor-stroke: #111111;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99999;
-  pointer-events: none;
-  opacity: 0;
-  will-change: transform;
-  display: none;
-}
-
-.dark .retro-cursor {
-  /* Dark mode: white interior, black border */
-  --cursor-fill: #ffffff;
-  --cursor-stroke: #000000;
-}
-
-@media (pointer: fine) {
-  .retro-cursor {
-    display: block;
-  }
-}
-
-.retro-cursor__arrow {
-  display: block;
-  transform: scale(var(--cursor-scale));
-  transform-origin: top left;
-  shape-rendering: crispedges;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  -webkit-user-drag: none;
-  user-select: none;
-  overflow: visible;
-  filter: drop-shadow(
-    0 0 4px color-mix(in srgb, var(--cursor-accent) 25%, transparent)
-  );
-  transition: filter 0.25s ease;
-}
-
-.retro-cursor[data-hover="true"] .retro-cursor__arrow {
-  filter:
-    drop-shadow(2px 2px 0 color-mix(in srgb, var(--cursor-accent) 50%, transparent))
-    drop-shadow(0 0 8px color-mix(in srgb, var(--cursor-accent) 40%, transparent));
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .retro-cursor__arrow {
-    transition: none;
   }
 }
 
