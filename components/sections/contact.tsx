@@ -1,12 +1,9 @@
-import { contactContent } from "@/data/contact";
-import { ContactSocialLinks } from "@/components/ui/contact-social-links";
+import { contactContent, contactMethods } from "@/data/contact";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
-import { Button } from "@/components/retroui/Button";
+import { ContactActions } from "@/components/ui/contact-actions";
 import { Card } from "@/components/retroui/Card";
-
-const inputClassName =
-  "w-full border-2 border-black bg-input px-4 py-3 text-foreground shadow-xs outline-none transition-all placeholder:text-muted-foreground/60 focus:shadow-sm";
+import { Text } from "@/components/retroui/Text";
 
 export function Contact() {
   return (
@@ -17,62 +14,21 @@ export function Contact() {
         description={contactContent.description}
       />
 
-      <Card className="mx-auto w-full max-w-2xl p-8 sm:p-10">
-        <form className="space-y-6">
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div>
-              <label
-                htmlFor="name"
-                className="mb-2 block font-head text-sm font-medium text-card-foreground"
-              >
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Your name"
-                className={inputClassName}
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="mb-2 block font-head text-sm font-medium text-card-foreground"
-              >
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="you@example.com"
-                className={inputClassName}
-              />
-            </div>
+      <div className="flex justify-center">
+        <Card className="w-full max-w-3xl p-8 sm:p-10">
+          <div className="mb-8 text-center">
+            <Text as="h3" className="text-card-foreground">
+              Get in touch
+            </Text>
+            <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-muted-foreground sm:text-base">
+              Prefer a quick conversation? Reach out by email, phone, or LinkedIn
+              — I&apos;d love to hear about your project or opportunity.
+            </p>
           </div>
-          <div>
-            <label
-              htmlFor="message"
-              className="mb-2 block font-head text-sm font-medium text-card-foreground"
-            >
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={5}
-              placeholder="Tell me about your project..."
-              className={`${inputClassName} resize-none`}
-            />
-          </div>
-          <Button type="submit" size="lg" className="w-full sm:w-auto">
-            Send Message
-          </Button>
-        </form>
 
-        <ContactSocialLinks />
-      </Card>
+          <ContactActions methods={contactMethods} />
+        </Card>
+      </div>
     </SectionWrapper>
   );
 }

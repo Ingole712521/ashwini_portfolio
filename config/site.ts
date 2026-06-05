@@ -10,6 +10,8 @@ export const siteConfig = {
   url: "https://ashwini.dev",
   email: "jadhavashwini2017@gmail.com",
   phone: "7972305010",
+  phoneDisplay: "+91 7972305010",
+  linkedin: "https://www.linkedin.com/in/ashwini-jadhav",
   resumePath: "/ASHWINI_RESUME_2026.pdf",
 } as const;
 
