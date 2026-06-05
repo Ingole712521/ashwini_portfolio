@@ -21,7 +21,7 @@ export function TechCard({ name, icon, className }: TechCardProps) {
       data-cursor-type="tech"
       data-cursor-magnetic
       className={cn(
-        "tech-card group flex h-full min-h-[88px] flex-col items-center justify-center gap-1.5 border-2 border-black bg-card p-2.5 shadow-sm transition-all duration-300 active:scale-[0.97] sm:min-h-0 sm:gap-2 sm:p-3 sm:hover:-translate-y-1.5 sm:hover:shadow-lg md:p-3.5",
+        "tech-card group flex h-full min-h-[88px] flex-col items-center justify-center gap-1.5 rounded-lg border border-border bg-card p-2.5 shadow-sm transition-all duration-300 active:scale-[0.98] sm:min-h-0 sm:gap-2 sm:p-3 sm:hover:-translate-y-1 sm:hover:scale-[1.02] sm:hover:shadow-md md:p-3.5",
         `tech-glow-${accent}`,
         className,
       )}
@@ -31,7 +31,7 @@ export function TechCard({ name, icon, className }: TechCardProps) {
         } as CSSProperties
       }
       onMouseEnter={(e) => {
-        e.currentTarget.style.boxShadow = `4px 4px 0 0 var(--shadow-color), 0 8px 24px color-mix(in srgb, ${color} 25%, transparent)`;
+        e.currentTarget.style.boxShadow = `0 8px 24px color-mix(in srgb, ${color} 20%, transparent)`;
         e.currentTarget.style.borderColor = color;
       }}
       onMouseLeave={(e) => {

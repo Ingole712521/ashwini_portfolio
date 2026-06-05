@@ -6,6 +6,7 @@ type SectionWrapperProps = {
   variant?: "default" | "muted";
   cursorZone?: string;
   className?: string;
+  reveal?: boolean;
   children: React.ReactNode;
 };
 
@@ -14,6 +15,7 @@ export function SectionWrapper({
   variant = "default",
   cursorZone,
   className = "",
+  reveal = true,
   children,
 }: SectionWrapperProps) {
   return (
@@ -21,12 +23,16 @@ export function SectionWrapper({
       id={id}
       data-cursor-zone={cursorZone ?? id}
       className={cn(
-        "section-anchor relative z-10 px-4 py-16 sm:px-6 sm:py-24 lg:py-32",
+        "section-anchor relative z-10 px-4 pt-28 pb-16 sm:px-6 sm:pt-32 sm:pb-24 lg:pb-32",
         variant === "muted" && "bg-muted/50",
         className,
       )}
     >
-      <ScrollReveal className="mx-auto max-w-6xl">{children}</ScrollReveal>
+      {reveal ? (
+        <ScrollReveal className="mx-auto max-w-6xl">{children}</ScrollReveal>
+      ) : (
+        <div className="mx-auto max-w-6xl">{children}</div>
+      )}
     </section>
   );
 }

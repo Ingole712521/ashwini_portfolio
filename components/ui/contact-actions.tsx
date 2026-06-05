@@ -36,9 +36,9 @@ export function ContactActions({ methods }: ContactActionsProps) {
               data-cursor-hover
               data-cursor-type="contact"
               data-cursor-magnetic
-              className="group flex flex-col items-center border-2 border-black bg-background p-5 text-center shadow-sm transition-all duration-300 active:scale-[0.98] sm:p-6 sm:hover:-translate-y-1.5 sm:hover:border-yellow sm:hover:shadow-lg"
+              className="group flex flex-col items-center rounded-lg border border-border bg-background p-5 text-center shadow-sm transition-all duration-300 active:scale-[0.98] sm:p-6 sm:hover:-translate-y-1 sm:hover:scale-[1.02] sm:hover:border-yellow/60 sm:hover:shadow-md"
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center border-2 border-black bg-yellow text-foreground shadow-xs transition-transform duration-300 sm:group-hover:scale-110">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-yellow text-foreground shadow-xs transition-transform duration-300 sm:group-hover:scale-105">
                 {Icon ? <Icon className="h-5 w-5" aria-hidden /> : null}
               </div>
               <p className="font-head text-sm font-semibold text-card-foreground">
@@ -67,7 +67,7 @@ export function ContactActions({ methods }: ContactActionsProps) {
         })}
       </div>
 
-      <div className="flex flex-col items-center gap-4 border-t-2 border-black pt-6 sm:pt-8">
+      <div className="flex flex-col items-center gap-4 border-t border-border pt-6 sm:pt-8">
         <p className="text-sm text-muted-foreground">Want the full profile?</p>
         <ResumeModalTrigger size="md" variant="secondary" className="w-full min-h-11 sm:w-auto">
           View Resume

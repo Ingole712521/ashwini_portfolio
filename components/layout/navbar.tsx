@@ -2,7 +2,6 @@
 
 import { useLenis } from "lenis/react";
 import { useCallback, useEffect, useState } from "react";
-import { siteConfig } from "@/config/site";
 import { navLinks } from "@/data/navigation";
 import { MenuIcon } from "@/components/ui/icons/menu-icon";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
@@ -10,7 +9,7 @@ import { Button } from "@/components/retroui/Button";
 import { cn } from "@/lib/utils";
 
 const panelClassName =
-  "border-2 border-black bg-card shadow-md";
+  "rounded-lg border border-border bg-card shadow-sm";
 
 const sectionIds = navLinks.map((l) => l.href.replace("#", ""));
 
@@ -78,20 +77,10 @@ export function Navbar() {
     <header className="pointer-events-none fixed top-0 right-0 left-0 z-50 px-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-6 sm:pt-[max(1rem,env(safe-area-inset-top))]">
       <nav
         className={cn(
-          "pointer-events-auto mx-auto flex max-w-6xl items-center justify-between px-3 py-3 sm:px-6 sm:py-3.5",
+          "pointer-events-auto relative mx-auto flex max-w-6xl items-center justify-end px-3 py-3 sm:px-6 sm:py-3.5 md:justify-center",
           panelClassName,
         )}
       >
-        <a
-          href="#home"
-          data-cursor-hover
-          data-cursor-type="link"
-          className="font-head text-base font-bold tracking-tight text-foreground transition-colors hover:text-primary sm:text-lg"
-          onClick={closeMenu}
-        >
-          {siteConfig.shortName}
-        </a>
-
         <div className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => {
             const id = link.href.replace("#", "");
@@ -108,9 +97,10 @@ export function Navbar() {
               </a>
             );
           })}
-          <div className="ml-2 border-l-2 border-black/10 pl-2">
-            <ThemeToggle />
-          </div>
+        </div>
+
+        <div className="absolute right-3 hidden items-center sm:right-6 md:flex">
+          <ThemeToggle />
         </div>
 
         <div className="flex items-center gap-2 md:hidden">

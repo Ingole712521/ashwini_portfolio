@@ -4,16 +4,16 @@ import React, { ButtonHTMLAttributes } from "react";
 import { Button as BaseButton } from "@base-ui/react/button";
 
 export const buttonVariants = cva(
-  "font-head transition-all rounded duration-300 font-semibold flex justify-center items-center disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+  "font-head transition-all rounded-lg duration-300 font-semibold flex justify-center items-center disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
   {
     variants: {
       variant: {
         default:
-          "shadow-md bg-primary text-primary-foreground border-2 border-black hover:-translate-y-1 hover:shadow-lg hover:rotate-[-0.5deg] active:translate-y-0.5 active:rotate-0 active:shadow-sm hover:bg-primary-hover hover:[box-shadow:4px_4px_0_0_var(--shadow-color),0_8px_24px_rgba(236,72,153,0.25)]",
+          "shadow-sm bg-primary text-primary-foreground hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:shadow-sm hover:bg-primary-hover",
         secondary:
-          "shadow-md bg-secondary text-secondary-foreground border-2 border-black hover:-translate-y-1 hover:shadow-lg hover:rotate-[0.5deg] active:translate-y-0.5 active:shadow-sm hover:bg-secondary-hover",
+          "shadow-sm bg-secondary text-secondary-foreground hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:shadow-sm hover:bg-secondary-hover",
         outline:
-          "shadow-md bg-card border-2 border-black hover:-translate-y-1 hover:border-purple hover:shadow-lg hover:text-purple active:translate-y-0.5 active:shadow-sm",
+          "shadow-sm bg-card border border-border hover:-translate-y-0.5 hover:border-purple/50 hover:shadow-md hover:text-purple active:translate-y-0 active:shadow-sm",
         link: "bg-transparent hover:underline underline-offset-4 decoration-purple",
         ghost:
           "bg-transparent hover:text-purple",

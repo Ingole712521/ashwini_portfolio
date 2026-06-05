@@ -10,13 +10,13 @@
   --font-mono: var(--font-mono);
   --radius: var(--radius);
 
-  --shadow-xs: var(--shadow-brutal-xs), var(--shadow-soft-xs);
-  --shadow-sm: var(--shadow-brutal-sm), var(--shadow-soft-sm);
-  --shadow: var(--shadow-brutal), var(--shadow-soft);
-  --shadow-md: var(--shadow-brutal-md), var(--shadow-soft-md);
-  --shadow-lg: var(--shadow-brutal-lg), var(--shadow-soft-lg);
-  --shadow-xl: var(--shadow-brutal-xl), var(--shadow-soft-xl);
-  --shadow-2xl: var(--shadow-brutal-2xl), var(--shadow-soft-2xl);
+  --shadow-xs: var(--shadow-soft-xs);
+  --shadow-sm: var(--shadow-soft-sm);
+  --shadow: var(--shadow-soft);
+  --shadow-md: var(--shadow-soft-md);
+  --shadow-lg: var(--shadow-soft-lg);
+  --shadow-xl: var(--shadow-soft-xl);
+  --shadow-2xl: var(--shadow-soft-2xl);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -46,7 +46,7 @@
 }
 
 :root {
-  --radius: 0;
+  --radius: 0.625rem;
 
   /* Brand palette */
   --primary: #ec4899;
@@ -69,8 +69,8 @@
   --secondary-foreground: #5b21b6;
   --accent: #8b5cf6;
   --accent-foreground: #ffffff;
-  --border: #111111;
-  --shadow-color: #111111;
+  --border: #e2dfe3;
+  --shadow-color: rgba(17, 17, 17, 0.08);
   --input: #ffffff;
   --ring: #ec4899;
   --popover: #ffffff;
@@ -109,8 +109,8 @@
   --secondary: #2a1f3d;
   --secondary-hover: #352850;
   --secondary-foreground: #ddd6fe;
-  --border: #8b5cf6;
-  --shadow-color: #ffffff;
+  --border: rgba(246, 242, 244, 0.14);
+  --shadow-color: rgba(0, 0, 0, 0.35);
   --input: #1a171c;
   --ring: #ec4899;
   --popover: #1a171c;
@@ -145,15 +145,23 @@ body {
 }
 
 /* Anchor scroll offset for fixed navbar */
+html {
+  scroll-padding-top: 7rem;
+}
+
 .section-anchor,
 #home {
-  scroll-margin-top: 5.5rem;
+  scroll-margin-top: 7rem;
 }
 
 @media (min-width: 640px) {
+  html {
+    scroll-padding-top: 7.5rem;
+  }
+
   .section-anchor,
   #home {
-    scroll-margin-top: 6.5rem;
+    scroll-margin-top: 7.5rem;
   }
 }
 
@@ -774,6 +782,21 @@ body {
   color: #ffffff;
 }
 
+/* Experience sticky card stack — tops set via JS for 80% overlap */
+.experience-stack__item {
+  position: sticky;
+  margin-bottom: 0.5rem;
+}
+
+.experience-stack__item:last-of-type {
+  margin-bottom: 0;
+}
+
+.experience-stack__spacer {
+  height: 50vh;
+  pointer-events: none;
+}
+
 /* Retro metro project card */
 .metro-project-card {
   transition:
@@ -783,13 +806,13 @@ body {
 
 @media (hover: hover) {
   .metro-project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 6px 6px 0 0 var(--shadow-color), 0 12px 28px rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
   }
 }
 
 .metro-project-card:active {
-  transform: scale(0.99);
+  transform: scale(0.98);
 }
 
 .metro-project-card__tile {

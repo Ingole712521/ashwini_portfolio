@@ -19,7 +19,7 @@ type ResumeModalProps = {
 function ResumeProfileContent() {
   return (
     <div className="space-y-8">
-      <header className="space-y-3 border-b-2 border-black pb-6">
+      <header className="space-y-3 border-b border-border pb-6">
         <Text as="h2" className="text-card-foreground">
           {siteConfig.name}
         </Text>
@@ -60,7 +60,7 @@ function ResumeProfileContent() {
           {resumeProfile.skillGroups.map((group) => (
             <div
               key={group.title}
-              className="border-2 border-black bg-background p-4 shadow-xs"
+              className="rounded-lg border border-border bg-background p-4 shadow-xs"
             >
               <p className="font-head text-sm text-primary">{group.title}</p>
               <p className="mt-1 text-sm leading-6 text-muted-foreground">
@@ -79,7 +79,7 @@ function ResumeProfileContent() {
           {resumeProfile.experience.map((job) => (
             <div
               key={job.title}
-              className="border-2 border-black bg-card p-4 shadow-xs"
+              className="rounded-lg border border-border bg-card p-4 shadow-xs"
             >
               <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                 <Text as="h4" className="text-base text-card-foreground">
@@ -113,7 +113,7 @@ function ResumeProfileContent() {
           {resumeProfile.featuredProjects.map((project) => (
             <div
               key={project.title}
-              className="border-2 border-black bg-secondary/30 p-4 shadow-xs"
+              className="rounded-lg border border-border bg-secondary/30 p-4 shadow-xs"
             >
               <p className="font-head text-sm text-card-foreground">
                 {project.title}
@@ -219,10 +219,10 @@ export function ResumeModal({ open, onClose }: ResumeModalProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="relative flex max-h-[92vh] w-full max-w-3xl flex-col border-2 border-black bg-card shadow-2xl sm:max-h-[90vh]"
+        className="relative flex max-h-[92vh] w-full max-w-3xl flex-col rounded-xl border border-border bg-card shadow-2xl sm:max-h-[90vh]"
         onWheel={(event) => event.stopPropagation()}
       >
-        <div className="flex shrink-0 items-center justify-between border-b-2 border-black bg-primary px-4 py-3 sm:px-6">
+        <div className="flex shrink-0 items-center justify-between border-b border-border/30 bg-primary px-4 py-3 sm:px-6">
           <p
             id={titleId}
             className="font-head text-sm text-primary-foreground sm:text-base"

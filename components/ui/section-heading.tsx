@@ -15,8 +15,10 @@ export function SectionHeading({
   badgeVariant = "surface",
 }: SectionHeadingProps) {
   return (
-    <div className="mb-10 text-center sm:mb-16">
-      <Badge variant={badgeVariant}>{label}</Badge>
+    <div className="mb-10 flex flex-col items-center text-center sm:mb-16">
+      <Badge variant={badgeVariant} className="rounded-full border border-white/20 px-4 py-1">
+        {label}
+      </Badge>
       <h2
         className={cn(
           "section-chapter-title text-balance mt-5 px-2 text-2xl text-foreground sm:mt-6 sm:px-0 sm:text-4xl lg:text-5xl",

@@ -23,7 +23,7 @@ export function ProjectCard({ project, index, className }: ProjectCardProps) {
       data-cursor-type="project"
       data-cursor-magnetic
       className={cn(
-        "metro-project-card group flex w-full flex-col overflow-hidden border-2 border-black bg-card shadow-md",
+        "metro-project-card group flex w-full flex-col overflow-hidden rounded-lg border border-border bg-card shadow-sm",
         className,
       )}
       style={
@@ -33,7 +33,7 @@ export function ProjectCard({ project, index, className }: ProjectCardProps) {
         } as CSSProperties
       }
     >
-      <div className="metro-project-card__tile relative flex h-32 flex-col justify-between border-b-2 border-black p-4 sm:h-40 sm:p-5 md:h-44 md:p-6">
+      <div className="metro-project-card__tile relative flex h-32 flex-col justify-between border-b border-border p-4 sm:h-40 sm:p-5 md:h-44 md:p-6">
         <span
           className="metro-project-card__ghost font-head leading-none select-none"
           aria-hidden
