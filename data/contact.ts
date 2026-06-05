@@ -14,12 +14,14 @@ export const contactMethods = [
     description: siteConfig.email,
     href: `mailto:${siteConfig.email}`,
     cta: "Send Email",
+    accent: "primary" as const,
   },
   {
     label: "Call Me",
     description: siteConfig.phoneDisplay,
     href: `tel:${siteConfig.phone}`,
     cta: "Call Now",
+    accent: "cyan" as const,
   },
   {
     label: "LinkedIn",
@@ -27,5 +29,6 @@ export const contactMethods = [
     href: siteConfig.linkedin,
     cta: "Connect on LinkedIn",
     external: true,
+    accent: "purple" as const,
   },
 ] as const;

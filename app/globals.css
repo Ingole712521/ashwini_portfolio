@@ -708,6 +708,51 @@ html {
   color: #ffffff;
 }
 
+.retro-contact-icon--cyan {
+  background: var(--cyan);
+  color: #ffffff;
+}
+
+.retro-contact-icon--linkedin {
+  background: var(--purple);
+  color: #ffffff;
+}
+
+/* Contact cards */
+.contact-card {
+  box-shadow: var(--shadow-soft-xs);
+}
+
+.contact-card:hover {
+  border-color: color-mix(in srgb, var(--contact-accent) 35%, var(--border));
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--contact-accent) 12%, transparent);
+}
+
+.contact-card__icon {
+  width: 3rem;
+  height: 3rem;
+  border-color: color-mix(in srgb, var(--contact-accent) 25%, var(--border));
+}
+
+.contact-card:hover .contact-card__icon {
+  box-shadow:
+    3px 3px 0 0 var(--shadow-color),
+    0 0 20px color-mix(in srgb, var(--contact-accent) 25%, transparent);
+}
+
+.contact-card__cta:hover {
+  border-color: color-mix(in srgb, var(--contact-accent) 50%, var(--border));
+  color: var(--contact-accent);
+}
+
+.contact-panel {
+  box-shadow: var(--shadow-soft-lg);
+}
+
+.contact-resume-banner {
+  box-shadow: var(--shadow-soft-xs);
+}
+
 /* Experience sticky card stack — tops set via JS for 80% overlap */
 .experience-stack__item {
   position: sticky;

@@ -3,7 +3,6 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { ContactActions } from "@/components/ui/contact-actions";
 import { Card } from "@/components/retroui/Card";
-import { Text } from "@/components/retroui/Text";
 
 export function Contact() {
   return (
@@ -17,19 +16,18 @@ export function Contact() {
 
       <div className="flex justify-center">
         <Card
-          className="w-full max-w-3xl p-5 sm:p-8 lg:p-12"
+          className="contact-panel relative w-full max-w-4xl overflow-hidden p-5 sm:p-8 lg:p-10"
           data-cursor-hover
           data-cursor-type="contact"
         >
-          <div className="mb-6 text-center sm:mb-10">
-            <Text as="h3" className="text-card-foreground">
-              Get in touch
-            </Text>
-            <p className="prose-body mx-auto mt-4 text-sm sm:text-base">
-              Prefer a quick conversation? Reach out by email, phone, or LinkedIn
-              — I&apos;d love to hear about your project or opportunity.
-            </p>
-          </div>
+          <div
+            className="pointer-events-none absolute -top-24 -right-16 h-48 w-48 rounded-full bg-yellow/15 blur-3xl"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-primary/10 blur-3xl"
+            aria-hidden
+          />
 
           <ContactActions methods={contactMethods} />
         </Card>
