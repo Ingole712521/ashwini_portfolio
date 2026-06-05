@@ -4,24 +4,25 @@ import React, { ButtonHTMLAttributes } from "react";
 import { Button as BaseButton } from "@base-ui/react/button";
 
 export const buttonVariants = cva(
-  "font-head transition-all rounded cursor-pointer duration-200 font-medium flex justify-center items-center disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+  "font-head transition-all rounded duration-300 font-semibold flex justify-center items-center disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
   {
     variants: {
       variant: {
         default:
-          "shadow-md hover:shadow active:shadow-none bg-primary text-primary-foreground border-2 border-black transition hover:translate-y-1 active:translate-y-2 active:translate-x-1 hover:bg-primary-hover",
+          "shadow-md bg-primary text-primary-foreground border-2 border-black hover:-translate-y-1 hover:shadow-lg hover:rotate-[-0.5deg] active:translate-y-0.5 active:rotate-0 active:shadow-sm hover:bg-primary-hover hover:[box-shadow:4px_4px_0_0_var(--border),0_8px_24px_rgba(236,72,153,0.25)]",
         secondary:
-          "shadow-md hover:shadow active:shadow-none bg-secondary shadow-primary text-secondary-foreground border-2 border-black transition hover:translate-y-1 active:translate-y-2 active:translate-x-1 hover:bg-secondary-hover",
+          "shadow-md bg-secondary text-secondary-foreground border-2 border-black hover:-translate-y-1 hover:shadow-lg hover:rotate-[0.5deg] active:translate-y-0.5 active:shadow-sm hover:bg-secondary-hover",
         outline:
-          "shadow-md hover:shadow active:shadow-none bg-transparent border-2 transition hover:translate-y-1 active:translate-y-2 active:translate-x-1",
-        link: "bg-transparent hover:underline",
-        ghost: "bg-transparent hover:bg-accent"
+          "shadow-md bg-card border-2 border-black hover:-translate-y-1 hover:border-purple hover:shadow-lg hover:text-purple active:translate-y-0.5 active:shadow-sm",
+        link: "bg-transparent hover:underline underline-offset-4 decoration-purple",
+        ghost:
+          "bg-transparent hover:text-purple",
       },
       size: {
-        sm: "px-3 py-1 text-sm shadow hover:shadow-sm",
-        md: "px-4 py-1.5 text-base",
-        lg: "px-6 lg:px-8 py-2 lg:py-3 text-md lg:text-lg",
-        icon: "p-2",
+        sm: "px-3 py-1.5 text-sm",
+        md: "px-4 py-2 text-base",
+        lg: "px-7 py-3 text-base lg:text-lg",
+        icon: "p-2.5",
       },
     },
     defaultVariants: {
@@ -49,6 +50,7 @@ export const Button = ({
   return (
     <BaseButton
       ref={ref}
+      data-cursor-hover
       className={cn(buttonVariants({ variant, size }), className)}
       render={render}
       {...props}

@@ -5,15 +5,15 @@ import { cn } from "@/lib/utils";
 const textVariants = cva("font-head", {
   variants: {
     as: {
-      p: "font-sans text-base",
-      li: "font-sans text-base",
-      a: "font-sans text-base hover:underline underline-offset-2 decoration-primary",
-      h1: "text-4xl lg:text-5xl font-bold",
-      h2: "text-3xl lg:text-4xl font-semibold",
-      h3: "text-2xl font-medium",
-      h4: "text-xl font-normal",
-      h5: "text-lg font-normal",
-      h6: "text-base font-normal",
+      p: "font-sans text-base font-normal",
+      li: "font-sans text-base font-normal",
+      a: "font-sans text-base hover:underline underline-offset-4 decoration-purple",
+      h1: "text-4xl font-bold tracking-tight lg:text-5xl",
+      h2: "text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl",
+      h3: "text-xl font-semibold tracking-tight sm:text-2xl",
+      h4: "text-lg font-medium",
+      h5: "text-base font-medium",
+      h6: "text-sm font-medium",
     },
   },
   defaultVariants: {

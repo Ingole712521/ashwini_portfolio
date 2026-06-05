@@ -10,7 +10,7 @@ const Card = ({ className, ...props }: ICardProps) => {
   return (
     <div
       className={cn(
-        "inline-block border-2 rounded shadow-md transition-all hover:shadow-none bg-card",
+        "inline-block border-2 rounded bg-card shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg",
         className,
       )}
       {...props}
@@ -32,7 +32,7 @@ const CardTitle = ({ className, ...props }: ICardProps) => {
 };
 
 const CardDescription = ({ className, ...props }: ICardProps) => (
-  <p className={cn("text-muted-foreground", className)} {...props} />
+  <p className={cn("prose-body text-sm", className)} {...props} />
 );
 
 const CardContent = ({ className, ...props }: ICardProps) => {

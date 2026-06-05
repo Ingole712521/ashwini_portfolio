@@ -1,4 +1,5 @@
 import { experience, experienceContent } from "@/data/experience";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { Badge } from "@/components/retroui/Badge";
@@ -7,39 +8,49 @@ import { Text } from "@/components/retroui/Text";
 
 export function Experience() {
   return (
-    <SectionWrapper id="experience" variant="muted">
+    <SectionWrapper id="experience" variant="muted" cursorZone="experience">
       <SectionHeading
         label={experienceContent.label}
         title={experienceContent.title}
         description={experienceContent.description}
+        badgeVariant="orange"
       />
 
-      <div className="flex flex-col gap-6">
-        {experience.map((job) => (
-          <Card key={`${job.company}-${job.period}`} className="w-full p-6 sm:p-8">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-              <div>
-                <Text as="h3" className="text-card-foreground">
-                  {job.company}
-                </Text>
-                <p className="mt-1 font-head text-primary">{job.role}</p>
+      <div className="flex flex-col gap-8">
+        {experience.map((job, i) => (
+          <ScrollReveal key={`${job.company}-${job.period}`} delay={i * 80}>
+            <Card
+              className="w-full p-7 sm:p-9"
+              data-cursor-hover
+              data-cursor-type="card"
+              data-cursor-magnetic
+            >
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <Text as="h3" className="text-card-foreground">
+                    {job.company}
+                  </Text>
+                  <p className="role-title mt-2 text-base text-primary sm:text-lg">
+                    {job.role}
+                  </p>
+                </div>
+                <Badge variant="orange" className="w-fit shrink-0">
+                  {job.period}
+                </Badge>
               </div>
-              <Badge variant="outline" className="w-fit shrink-0">
-                {job.period}
-              </Badge>
-            </div>
-            <ul className="mt-5 space-y-2.5">
-              {job.highlights.map((highlight) => (
-                <li
-                  key={highlight}
-                  className="flex items-start gap-3 text-sm leading-6 text-muted-foreground"
-                >
-                  <span className="mt-1.5 h-2 w-2 shrink-0 border border-black bg-accent" />
-                  {highlight}
-                </li>
-              ))}
-            </ul>
-          </Card>
+              <ul className="mt-6 space-y-3">
+                {job.highlights.map((highlight) => (
+                  <li
+                    key={highlight}
+                    className="prose-body flex items-start gap-3 text-sm sm:text-base"
+                  >
+                    <span className="mt-2.5 h-2 w-2 shrink-0 border border-black bg-orange" />
+                    {highlight}
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          </ScrollReveal>
         ))}
       </div>
     </SectionWrapper>

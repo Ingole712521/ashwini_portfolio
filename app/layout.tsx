@@ -1,6 +1,8 @@
 import { Navbar, Footer } from "@/components/layout";
+import { CustomCursorProvider } from "@/components/providers/custom-cursor-provider";
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { SceneBackground } from "@/components/ui/scene-background";
 import { siteMetadata } from "@/config/site";
 import { fontVariables } from "@/lib/fonts";
 import "./globals.css";
@@ -18,13 +20,16 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${fontVariables} h-full font-sans antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="relative min-h-full flex flex-col bg-background text-foreground">
         <ThemeProvider>
-          <SmoothScrollProvider>
-            <Navbar />
-            <main>{children}</main>
-            <Footer />
-          </SmoothScrollProvider>
+          <CustomCursorProvider>
+            <SceneBackground />
+            <SmoothScrollProvider>
+              <Navbar />
+              <main className="relative z-10">{children}</main>
+              <Footer />
+            </SmoothScrollProvider>
+          </CustomCursorProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -1,14 +1,15 @@
-import { Archivo_Black, Space_Grotesk, Space_Mono } from "next/font/google";
+import { Inter, Space_Grotesk, Space_Mono } from "next/font/google";
 
-export const archivoBlack = Archivo_Black({
+export const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["500", "600", "700"],
   variable: "--font-head",
   display: "swap",
 });
 
-export const spaceGrotesk = Space_Grotesk({
+export const inter = Inter({
   subsets: ["latin"],
+  weight: ["400", "500"],
   variable: "--font-sans",
   display: "swap",
 });
@@ -20,4 +21,4 @@ export const spaceMono = Space_Mono({
   display: "swap",
 });
 
-export const fontVariables = `${archivoBlack.variable} ${spaceGrotesk.variable} ${spaceMono.variable}`;
+export const fontVariables = `${spaceGrotesk.variable} ${inter.variable} ${spaceMono.variable}`;
