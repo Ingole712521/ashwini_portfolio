@@ -10,7 +10,11 @@ import { Text } from "@/components/retroui/Text";
 /** How much of the card below stays visible (0.2 = next card covers 80%) */
 const PEEK_RATIO = 0.2;
 
+/** Default sticky offset before client measure runs (SSR-safe). */
+const FALLBACK_NAV_OFFSET = 96;
+
 function getNavOffset() {
+  if (typeof window === "undefined") return FALLBACK_NAV_OFFSET;
   return window.matchMedia("(min-width: 640px)").matches ? 104 : 96;
 }
 
@@ -65,7 +69,7 @@ export function ExperienceStack() {
           className="experience-stack__item"
           style={
             {
-              top: stickyTops[i] ?? getNavOffset(),
+              top: stickyTops[i] ?? FALLBACK_NAV_OFFSET,
               zIndex: i + 1,
             } as CSSProperties
           }
