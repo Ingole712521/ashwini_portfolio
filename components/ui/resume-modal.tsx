@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useId, useState } from "react";
 import { createPortal } from "react-dom";
-import { useLenis } from "lenis/react";
+import { ReactLenis, useLenis } from "lenis/react";
 import { X } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { resumeProfile } from "@/data/resume-profile";
@@ -15,6 +15,12 @@ type ResumeModalProps = {
   open: boolean;
   onClose: () => void;
 };
+
+const RESUME_LENIS_OPTIONS = {
+  autoRaf: true,
+  duration: 1.2,
+  smoothWheel: true,
+} as const;
 
 function ResumeProfileContent() {
   return (
@@ -220,7 +226,6 @@ export function ResumeModal({ open, onClose }: ResumeModalProps) {
         aria-modal="true"
         aria-labelledby={titleId}
         className="relative flex max-h-[92vh] w-full max-w-3xl flex-col rounded-xl border border-border bg-card shadow-2xl sm:max-h-[90vh]"
-        onWheel={(event) => event.stopPropagation()}
       >
         <div className="flex shrink-0 items-center justify-between border-b border-border/30 bg-primary px-4 py-3 sm:px-6">
           <p
@@ -241,12 +246,15 @@ export function ResumeModal({ open, onClose }: ResumeModalProps) {
           </Button>
         </div>
 
-        <div
-          className="hide-scrollbar min-h-0 flex-1 overflow-y-auto overscroll-contain p-5 sm:p-8"
-          data-lenis-prevent
+        <ReactLenis
+          root={false}
+          className="hide-scrollbar min-h-0 flex-1 overflow-y-auto overscroll-contain"
+          options={RESUME_LENIS_OPTIONS}
         >
-          <ResumeProfileContent />
-        </div>
+          <div className="p-5 sm:p-8">
+            <ResumeProfileContent />
+          </div>
+        </ReactLenis>
       </div>
     </div>,
     document.body,

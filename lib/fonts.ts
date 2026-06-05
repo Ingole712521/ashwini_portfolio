@@ -22,3 +22,4 @@ export const spaceMono = Space_Mono({
 });
 
 export const fontVariables = `${spaceGrotesk.variable} ${inter.variable} ${spaceMono.variable}`;
+  
