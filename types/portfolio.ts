@@ -14,6 +14,18 @@ export type Project = {
   tags: string[];
 };
 
+export type Experience = {
+  company: string;
+  role: string;
+  period: string;
+  highlights: string[];
+};
+
+export type Education = {
+  degree: string;
+  institution: string;
+};
+
 export type SocialLink = {
   label: string;
   href: string;

@@ -1,13 +1,23 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo_Black, Space_Grotesk, Space_Mono } from "next/font/google";
 
-export const geistSans = Geist({
-  variable: "--font-geist-sans",
+export const archivoBlack = Archivo_Black({
   subsets: ["latin"],
+  weight: "400",
+  variable: "--font-head",
+  display: "swap",
 });
 
-export const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+export const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
 });
 
-export const fontVariables = `${geistSans.variable} ${geistMono.variable}`;
+export const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-mono",
+  display: "swap",
+});
+
+export const fontVariables = `${archivoBlack.variable} ${spaceGrotesk.variable} ${spaceMono.variable}`;

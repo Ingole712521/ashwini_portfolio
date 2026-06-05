@@ -1,6 +1,11 @@
 import { contactContent, socialLinks } from "@/data/contact";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
+import { Button } from "@/components/retroui/Button";
+import { Card } from "@/components/retroui/Card";
+
+const inputClassName =
+  "w-full border-2 border-black bg-input px-4 py-3 text-foreground shadow-xs outline-none transition-all placeholder:text-muted-foreground/60 focus:shadow-sm";
 
 export function Contact() {
   return (
@@ -11,13 +16,13 @@ export function Contact() {
         description={contactContent.description}
       />
 
-      <div className="mx-auto max-w-2xl rounded-2xl border border-border bg-card p-8 sm:p-10">
+      <Card className="mx-auto w-full max-w-2xl p-8 sm:p-10">
         <form className="space-y-6">
           <div className="grid gap-6 sm:grid-cols-2">
             <div>
               <label
                 htmlFor="name"
-                className="mb-2 block text-sm font-medium text-card-foreground"
+                className="mb-2 block font-head text-sm font-medium text-card-foreground"
               >
                 Name
               </label>
@@ -26,13 +31,13 @@ export function Contact() {
                 name="name"
                 type="text"
                 placeholder="Your name"
-                className="w-full rounded-xl border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-ring/30"
+                className={inputClassName}
               />
             </div>
             <div>
               <label
                 htmlFor="email"
-                className="mb-2 block text-sm font-medium text-card-foreground"
+                className="mb-2 block font-head text-sm font-medium text-card-foreground"
               >
                 Email
               </label>
@@ -41,14 +46,14 @@ export function Contact() {
                 name="email"
                 type="email"
                 placeholder="you@example.com"
-                className="w-full rounded-xl border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-ring/30"
+                className={inputClassName}
               />
             </div>
           </div>
           <div>
             <label
               htmlFor="message"
-              className="mb-2 block text-sm font-medium text-card-foreground"
+              className="mb-2 block font-head text-sm font-medium text-card-foreground"
             >
               Message
             </label>
@@ -57,36 +62,38 @@ export function Contact() {
               name="message"
               rows={5}
               placeholder="Tell me about your project..."
-              className="w-full resize-none rounded-xl border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-ring/30"
+              className={`${inputClassName} resize-none`}
             />
           </div>
-          <button
-            type="submit"
-            className="w-full rounded-full bg-primary py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-accent sm:w-auto sm:px-10"
-          >
+          <Button type="submit" size="lg" className="w-full sm:w-auto">
             Send Message
-          </button>
+          </Button>
         </form>
 
-        <div className="mt-10 border-t border-border pt-8">
+        <div className="mt-10 border-t-2 border-black pt-8">
           <p className="mb-4 text-center text-sm text-muted-foreground">
             Or find me on social media
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             {socialLinks.map((link) => (
-              <a
+              <Button
                 key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-border bg-background px-5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                variant="outline"
+                size="sm"
+                render={
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  />
+                }
               >
                 {link.label}
-              </a>
+              </Button>
             ))}
           </div>
         </div>
-      </div>
+      </Card>
     </SectionWrapper>
   );
 }

@@ -2,28 +2,46 @@ import type { Project, SectionContent } from "@/types/portfolio";
 
 export const projectsContent: SectionContent = {
   label: "Projects",
-  title: "Things I've built",
+  title: "Selected work",
   description:
-    "A selection of projects that showcase my style, skills, and attention to detail.",
+    "Production systems spanning PWAs, e-commerce, Shopify apps, booking platforms, and multi-tenant APIs.",
 };
 
 export const projects: Project[] = [
   {
-    title: "Personal Portfolio",
+    title: "Naam Jap Shibir",
     description:
-      "A single-page portfolio with a soft pink theme, dark/light mode, and smooth section navigation.",
-    tags: ["Next.js", "Tailwind CSS", "TypeScript"],
+      "Real-time event tracking PWA for a multi-day event with family login, attendance tracking, live jap count aggregation, geolocation validation, and Excel participant import. Includes secure REST APIs and an admin dashboard with scalable frontend/backend infrastructure.",
+    tags: ["React.js", "Tailwind CSS", "Laravel 10", "Sanctum", "MySQL", "PWA"],
   },
   {
-    title: "Beauty Brand Landing Page",
+    title: "EC Mall",
     description:
-      "An elegant landing page for a skincare brand with soft gradients, product cards, and a newsletter signup.",
-    tags: ["React", "UI Design", "Responsive"],
+      "Scalable multi-vendor e-commerce platform with seller dashboards, service booking, shipping automation, and order lifecycle management. Role-based architecture allows independent seller operations under centralized admin control.",
+    tags: ["Laravel", "PHP", "MySQL", "JavaScript", "Bootstrap"],
   },
   {
-    title: "Task Manager App",
+    title: "Samurai Golf Tours",
     description:
-      "A clean to-do app with categories, priorities, and a calming pink interface for everyday productivity.",
-    tags: ["JavaScript", "Local Storage", "CSS"],
+      "Booking platform for Japanese golf tours featuring location mapping, course booking system, and admin panel for managing requests. Integrated automated email communication and improved booking workflow efficiency.",
+    tags: ["Laravel", "jQuery", "Mapbox API", "SQL"],
+  },
+  {
+    title: "Shopify Smart Product Filter",
+    description:
+      "Shopify embedded app enabling merchants to create dynamic storefront filters using Theme App Extensions. Implemented OAuth authentication, admin dashboard configuration, and theme-agnostic integration without Liquid code changes.",
+    tags: ["Laravel", "Shopify API", "App Bridge", "JavaScript", "MySQL"],
+  },
+  {
+    title: "Online MCQ Examination API",
+    description:
+      "Secure multi-tenant backend API for online examination systems with role-based access, exam management, result processing, and performance tracking.",
+    tags: ["Laravel", "REST API", "MySQL", "JWT"],
+  },
+  {
+    title: "Kaamkaz Website Revamp",
+    description:
+      "Enhanced job platform frontend and admin dashboard with responsive UI, API integration, authentication flows, and employer/employee management features.",
+    tags: ["React.js", "Tailwind CSS", "REST APIs"],
   },
 ];

@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 
 export const siteConfig = {
-  name: "Ashwini",
-  title: "Ashwini | Portfolio",
-  description: "Personal portfolio of Ashwini — creative developer and designer.",
+  name: "Ashwini A. Jadhav",
+  shortName: "Ashwini",
+  title: "Ashwini A. Jadhav | Senior Full Stack Developer",
+  role: "Senior Full Stack Developer (Laravel + React)",
+  description:
+    "Portfolio of Ashwini A. Jadhav — Senior Full Stack Developer with 8+ years of experience in Laravel, React, and scalable web applications.",
   url: "https://ashwini.dev",
-  email: "ashwini@example.com",
+  email: "jadhavashwini2017@gmail.com",
+  phone: "7972305010",
+  resumePath: "/ASHWINI_RESUME_2026.pdf",
 } as const;
 
 export const siteMetadata: Metadata = {

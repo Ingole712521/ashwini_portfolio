@@ -1,6 +1,9 @@
 import { projects, projectsContent } from "@/data/projects";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
+import { Badge } from "@/components/retroui/Badge";
+import { Card } from "@/components/retroui/Card";
+import { Text } from "@/components/retroui/Text";
 
 export function Projects() {
   return (
@@ -11,34 +14,31 @@ export function Projects() {
         description={projectsContent.description}
       />
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2">
         {projects.map((project) => (
-          <article
+          <Card
             key={project.title}
-            className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-lg hover:shadow-primary/10"
+            className="group flex w-full flex-col p-6 transition-all hover:translate-y-1 sm:p-8"
           >
-            <div className="mb-4 flex h-40 items-center justify-center rounded-xl bg-secondary">
-              <span className="text-4xl font-bold text-primary/40">
+            <div className="mb-4 flex h-32 items-center justify-center border-2 border-black bg-secondary">
+              <span className="font-head text-3xl text-primary sm:text-4xl">
                 {project.title.charAt(0)}
               </span>
             </div>
-            <h3 className="text-lg font-semibold text-card-foreground group-hover:text-primary">
+            <Text as="h3" className="text-card-foreground group-hover:text-primary">
               {project.title}
-            </h3>
-            <p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">
+            </Text>
+            <p className="mt-3 flex-1 text-sm leading-6 text-muted-foreground">
               {project.description}
             </p>
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div className="mt-5 flex flex-wrap gap-2">
               {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted-foreground"
-                >
+                <Badge key={tag} variant="outline" size="sm">
                   {tag}
-                </span>
+                </Badge>
               ))}
             </div>
-          </article>
+          </Card>
         ))}
       </div>
     </SectionWrapper>

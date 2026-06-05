@@ -1,4 +1,5 @@
 import { Navbar, Footer } from "@/components/layout";
+import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { siteMetadata } from "@/config/site";
 import { fontVariables } from "@/lib/fonts";
@@ -15,13 +16,15 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${fontVariables} h-full antialiased`}
+      className={`${fontVariables} h-full font-sans antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <ThemeProvider>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
+          <SmoothScrollProvider>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+          </SmoothScrollProvider>
         </ThemeProvider>
       </body>
     </html>
