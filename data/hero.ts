@@ -2,9 +2,12 @@ import type { TechStackItem } from "@/types/portfolio";
 
 export const heroContent = {
   badge: "8+ Years of Professional Experience",
+  availability: "Freelancer",
   greeting: "Hi, I'm",
   tagline:
     "Senior Full Stack Developer specializing in Laravel, React.js, and scalable production systems — from REST APIs and admin dashboards to e-commerce and Shopify embedded apps.",
+  availabilityNote:
+    "Open for freelancing work on new projects, websites, and WordPress development.",
   primaryCta: { label: "View Experience", href: "#experience" },
   secondaryCta: { label: "View Projects", href: "#projects" },
   resumeCta: { label: "View Resume" },

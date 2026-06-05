@@ -15,10 +15,13 @@ export function Hero() {
     >
       <Card className="relative w-full max-w-5xl p-8 sm:p-12">
         <div className="flex flex-col gap-8">
-          <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-            <Badge variant="surface">{heroContent.badge}</Badge>
+          <div className="flex w-full flex-col items-center gap-6 text-center sm:items-start sm:text-left">
+            <div className="flex w-full flex-wrap items-center justify-center gap-2 sm:justify-start">
+              <Badge variant="surface">{heroContent.badge}</Badge>
+              <Badge variant="outline">{heroContent.availability}</Badge>
+            </div>
 
-            <div className="space-y-3">
+            <div className="w-full space-y-3">
               <Text as="h1" className="text-card-foreground">
                 {heroContent.greeting}{" "}
                 <span className="text-primary">{siteConfig.name}</span>
@@ -26,7 +29,7 @@ export function Hero() {
               <p className="font-head text-lg text-primary sm:text-xl">
                 {siteConfig.role}
               </p>
-              <div className="flex flex-col gap-1 text-sm text-muted-foreground sm:flex-row sm:gap-4">
+              <div className="flex flex-col items-center gap-1 text-sm text-muted-foreground sm:flex-row sm:items-center sm:gap-4">
                 <a
                   href={`mailto:${siteConfig.email}`}
                   className="transition-colors hover:text-primary"
@@ -41,12 +44,15 @@ export function Hero() {
                   {siteConfig.phone}
                 </a>
               </div>
-              <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+              <p className="mx-auto max-w-3xl text-base leading-7 text-muted-foreground sm:mx-0 sm:text-lg">
                 {heroContent.tagline}
+              </p>
+              <p className="mx-auto max-w-3xl text-base leading-7 text-primary sm:mx-0 sm:text-lg">
+                {heroContent.availabilityNote}
               </p>
             </div>
 
-            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="flex w-full flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:items-start sm:justify-start">
               <Button
                 size="lg"
                 render={<a href={heroContent.primaryCta.href} />}
