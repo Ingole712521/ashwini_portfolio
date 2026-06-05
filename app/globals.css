@@ -732,6 +732,36 @@ body {
   color: var(--primary);
 }
 
+/* Retro contact icon chips */
+.retro-contact-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 2px solid var(--border);
+  box-shadow: 2px 2px 0 0 var(--shadow-color);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.group:hover .retro-contact-icon {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 0 var(--shadow-color);
+}
+
+.retro-contact-icon--mail {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.retro-contact-icon--phone {
+  background: var(--orange);
+  color: #ffffff;
+}
+
 /* Retro metro project card */
 .metro-project-card {
   transition:

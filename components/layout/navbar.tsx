@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useLenis } from "lenis/react";
+import { useCallback, useEffect, useState } from "react";
 import { siteConfig } from "@/config/site";
 import { navLinks } from "@/data/navigation";
 import { MenuIcon } from "@/components/ui/icons/menu-icon";
@@ -13,30 +14,46 @@ const panelClassName =
 
 const sectionIds = navLinks.map((l) => l.href.replace("#", ""));
 
+/** Navbar height + breathing room for active section detection */
+const NAV_OFFSET = 140;
+
+function getActiveSection(): string {
+  let current = sectionIds[0];
+
+  for (const id of sectionIds) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+
+    const top = el.getBoundingClientRect().top;
+    if (top <= NAV_OFFSET) {
+      current = id;
+    }
+  }
+
+  const scrollBottom = window.scrollY + window.innerHeight;
+  const docHeight = document.documentElement.scrollHeight;
+  if (scrollBottom >= docHeight - 80) {
+    return sectionIds[sectionIds.length - 1] ?? current;
+  }
+
+  return current;
+}
+
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
 
-  useEffect(() => {
-    const observers: IntersectionObserver[] = [];
-
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActive(id);
-        },
-        { threshold: 0.25, rootMargin: "-15% 0px -50% 0px" },
-      );
-
-      observer.observe(el);
-      observers.push(observer);
-    });
-
-    return () => observers.forEach((o) => o.disconnect());
+  const updateActive = useCallback(() => {
+    setActive(getActiveSection());
   }, []);
+
+  useLenis(updateActive);
+
+  useEffect(() => {
+    updateActive();
+    window.addEventListener("resize", updateActive);
+    return () => window.removeEventListener("resize", updateActive);
+  }, [updateActive]);
 
   useEffect(() => {
     if (!open) return;

@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { Mail, Phone } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { heroContent, heroTechStack } from "@/data/hero";
 import { Badge } from "@/components/retroui/Badge";
@@ -112,23 +113,36 @@ export function Hero() {
               </ResumeModalTrigger>
             </div>
 
-            <div className="animate-hero-reveal stagger-7 flex w-full max-w-full flex-col items-start gap-1 font-mono text-xs text-muted-foreground sm:flex-row sm:items-center sm:gap-4 sm:text-sm">
+            <div className="animate-hero-reveal stagger-7 flex w-full max-w-full flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
               <a
                 href={`mailto:${siteConfig.email}`}
                 data-cursor-hover
-                className="link-hover max-w-full break-all"
+                className="link-hover group inline-flex max-w-full items-center gap-2.5 font-mono text-xs text-muted-foreground transition-colors sm:text-sm"
               >
-                {siteConfig.email}
+                <span
+                  className="retro-contact-icon retro-contact-icon--mail"
+                  aria-hidden
+                >
+                  <Mail className="h-3.5 w-3.5" strokeWidth={2.5} />
+                </span>
+                <span className="break-all group-hover:text-primary">
+                  {siteConfig.email}
+                </span>
               </a>
-              <span className="hidden text-border sm:inline" aria-hidden>
-                /
-              </span>
               <a
                 href={`tel:${siteConfig.phone}`}
                 data-cursor-hover
-                className="link-hover"
+                className="link-hover group inline-flex items-center gap-2.5 font-mono text-xs text-muted-foreground transition-colors sm:text-sm"
               >
-                {siteConfig.phoneDisplay}
+                <span
+                  className="retro-contact-icon retro-contact-icon--phone"
+                  aria-hidden
+                >
+                  <Phone className="h-3.5 w-3.5" strokeWidth={2.5} />
+                </span>
+                <span className="group-hover:text-primary">
+                  {siteConfig.phoneDisplay}
+                </span>
               </a>
             </div>
           </div>
