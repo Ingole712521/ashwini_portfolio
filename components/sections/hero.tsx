@@ -4,6 +4,7 @@ import { Badge } from "@/components/retroui/Badge";
 import { Button } from "@/components/retroui/Button";
 import { Card } from "@/components/retroui/Card";
 import { Text } from "@/components/retroui/Text";
+import { ResumeModalTrigger } from "@/components/ui/resume-modal";
 import { TechIcon } from "@/components/ui/tech-icon";
 
 export function Hero() {
@@ -59,19 +60,9 @@ export function Hero() {
               >
                 {heroContent.secondaryCta.label}
               </Button>
-              <Button
-                size="lg"
-                variant="secondary"
-                render={
-                  <a
-                    href={heroContent.resumeCta.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  />
-                }
-              >
+              <ResumeModalTrigger size="lg" variant="secondary">
                 {heroContent.resumeCta.label}
-              </Button>
+              </ResumeModalTrigger>
             </div>
           </div>
 

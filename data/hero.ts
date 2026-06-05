@@ -7,7 +7,7 @@ export const heroContent = {
     "Senior Full Stack Developer specializing in Laravel, React.js, and scalable production systems — from REST APIs and admin dashboards to e-commerce and Shopify embedded apps.",
   primaryCta: { label: "View Experience", href: "#experience" },
   secondaryCta: { label: "View Projects", href: "#projects" },
-  resumeCta: { label: "Download Resume", href: "/ASHWINI_RESUME_2026.pdf" },
+  resumeCta: { label: "View Resume" },
 } as const;
 
 export const heroTechStack: TechStackItem[] = [

@@ -1,4 +1,5 @@
-import { contactContent, socialLinks } from "@/data/contact";
+import { contactContent } from "@/data/contact";
+import { ContactSocialLinks } from "@/components/ui/contact-social-links";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { Button } from "@/components/retroui/Button";
@@ -70,29 +71,7 @@ export function Contact() {
           </Button>
         </form>
 
-        <div className="mt-10 border-t-2 border-black pt-8">
-          <p className="mb-4 text-center text-sm text-muted-foreground">
-            Or find me on social media
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            {socialLinks.map((link) => (
-              <Button
-                key={link.label}
-                variant="outline"
-                size="sm"
-                render={
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  />
-                }
-              >
-                {link.label}
-              </Button>
-            ))}
-          </div>
-        </div>
+        <ContactSocialLinks />
       </Card>
     </SectionWrapper>
   );

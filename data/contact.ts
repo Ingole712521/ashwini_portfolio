@@ -11,5 +11,4 @@ export const contactContent: SectionContent = {
 export const socialLinks: SocialLink[] = [
   { label: "Email", href: `mailto:${siteConfig.email}` },
   { label: "Phone", href: `tel:${siteConfig.phone}` },
-  { label: "Resume", href: siteConfig.resumePath },
 ];
