@@ -8,6 +8,11 @@ export type Skill = {
   level: number;
 };
 
+export type TechStackItem = {
+  name: string;
+  icon: string;
+};
+
 export type Project = {
   title: string;
   description: string;

@@ -1,9 +1,10 @@
 import { siteConfig } from "@/config/site";
-import { heroContent, heroSkills } from "@/data/hero";
+import { heroContent, heroTechStack } from "@/data/hero";
 import { Badge } from "@/components/retroui/Badge";
 import { Button } from "@/components/retroui/Button";
 import { Card } from "@/components/retroui/Card";
 import { Text } from "@/components/retroui/Text";
+import { TechIcon } from "@/components/ui/tech-icon";
 
 export function Hero() {
   return (
@@ -75,17 +76,18 @@ export function Hero() {
           </div>
 
           <div className="border-t-2 border-black pt-8">
-            <Text as="h3" className="mb-4 text-card-foreground">
-              Skills & Abilities
+            <Text as="h3" className="mb-5 text-card-foreground">
+              Tech Stack
             </Text>
-            <ul className="grid gap-3 sm:grid-cols-2">
-              {heroSkills.map((skill) => (
-                <li
-                  key={skill}
-                  className="flex items-start gap-3 text-sm leading-6 text-muted-foreground"
-                >
-                  <span className="mt-1.5 h-2 w-2 shrink-0 border border-black bg-primary" />
-                  {skill}
+            <ul className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8">
+              {heroTechStack.map((tech) => (
+                <li key={tech.name}>
+                  <div className="flex h-full flex-col items-center justify-center gap-2 border-2 border-black bg-background p-3 shadow-xs transition-all hover:-translate-y-0.5 hover:shadow-sm">
+                    <TechIcon icon={tech.icon} className="text-foreground" />
+                    <span className="text-center text-[10px] font-head leading-tight text-muted-foreground sm:text-xs">
+                      {tech.name}
+                    </span>
+                  </div>
                 </li>
               ))}
             </ul>

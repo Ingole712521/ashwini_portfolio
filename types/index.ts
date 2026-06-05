@@ -1,6 +1,7 @@
 export type {
   NavLink,
   Skill,
+  TechStackItem,
   Project,
   Experience,
   Education,

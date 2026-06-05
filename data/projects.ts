@@ -2,7 +2,7 @@ import type { Project, SectionContent } from "@/types/portfolio";
 
 export const projectsContent: SectionContent = {
   label: "Projects",
-  title: "Selected work",
+  title: "What I've built",
   description:
     "Production systems spanning PWAs, e-commerce, Shopify apps, booking platforms, and multi-tenant APIs.",
 };
