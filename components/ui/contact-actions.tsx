@@ -3,7 +3,7 @@
 import type { CSSProperties } from "react";
 import { ArrowUpRight, Mail, Phone } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
-import { Button } from "@/components/retroui/Button";
+import { Button, buttonVariants } from "@/components/retroui/Button";
 import { ResumeModalTrigger } from "@/components/ui/resume-modal";
 import { cn } from "@/lib/utils";
 
@@ -98,21 +98,21 @@ export function ContactActions({ methods }: ContactActionsProps) {
                 {method.description}
               </p>
 
-              <Button
-                size="md"
-                variant="outline"
-                className="contact-card__cta mt-5 w-full min-h-11"
-                render={
-                  <a
-                    href={method.href}
-                    {...(method.external
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : {})}
-                  />
-                }
+              <a
+                href={method.href}
+                data-cursor-hover
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "md" }),
+                  "contact-card__cta mt-5 w-full min-h-11",
+                )}
+                {...(method.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : method.label === "Email Me"
+                    ? { "aria-label": `Send email to ${method.description}` }
+                    : {})}
               >
                 {method.cta}
-              </Button>
+              </a>
             </article>
           );
         })}
