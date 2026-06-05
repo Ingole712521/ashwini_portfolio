@@ -211,7 +211,7 @@ export function ResumeModal({ open, onClose }: ResumeModalProps) {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] flex items-end justify-center p-3 sm:items-center sm:p-6"
+      className="fixed inset-0 z-[100] flex items-end justify-center p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:items-center sm:p-6 sm:pt-[max(6.5rem,env(safe-area-inset-top))]"
       data-lenis-prevent
     >
       <button
@@ -225,9 +225,9 @@ export function ResumeModal({ open, onClose }: ResumeModalProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="relative flex max-h-[92vh] w-full max-w-3xl flex-col rounded-xl border border-border bg-card shadow-2xl sm:max-h-[90vh]"
+        className="relative flex max-h-[min(92vh,calc(100dvh-1.5rem))] w-full max-w-3xl flex-col overflow-hidden rounded-xl border border-border bg-card shadow-2xl sm:max-h-[min(88vh,calc(100dvh-7.5rem))]"
       >
-        <div className="flex shrink-0 items-center justify-between border-b border-border/30 bg-primary px-4 py-3 sm:px-6">
+        <div className="flex shrink-0 items-center justify-between rounded-t-xl border-b border-border/30 bg-primary px-4 py-3 sm:px-6">
           <p
             id={titleId}
             className="font-head text-sm text-primary-foreground sm:text-base"
